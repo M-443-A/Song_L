@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برای عشقِ من ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ستاره‌های پس‌زمینه -->
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <div class="container">
+        <!-- هاله نورانی و قلب درخشان -->
+        <div class="glow-heart">
+            <div class="heart">❤️</div>
+        </div>
+
+        <!-- متن‌ها -->
+        <h1>یـادگــــــــــار🫠 </h1>
+        <p class="subtitle">این آهنـــــــگ...</p>
+
+        <!-- دکمه پخش با هاله نور -->
+        <div class="play-container">
+            <button id="playBtn" class="play-btn">
+                <span class="icon">🎵</span>
+            </button>
+            <div class="pulse-ring"></div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer" src="adio/song.mp3"></audio>
+
+    <script>
+        const audio = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const icon = playBtn.querySelector('.icon');
+        const pulseRing = document.querySelector('.pulse-ring');
+        let isPlaying = false;
+
+        playBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            if (!isPlaying) {
+                audio.play();
+                isPlaying = true;
+                icon.innerHTML = '🎶';
+                playBtn.classList.add('is-playing');
+                pulseRing.style.display = 'none'; // وقتی پخش شد، هاله قطع شود
+            } else {
+                audio.pause();
+                isPlaying = false;
+                icon.innerHTML = '🎵';
+                playBtn.classList.remove('is-playing');
+                pulseRing.style.display = 'block';
+            }
+        });
+
+        audio.addEventListener('ended', () => {
+            isPlaying = false;
+            icon.innerHTML = '🎵';
+            playBtn.classList.remove('is-playing');
+            pulseRing.style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
