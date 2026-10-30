@@ -1,194 +1,1125 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
+
+    -webkit-tap-highlight-color:
+        transparent;
 }
+
+
+:root {
+
+    --gold: #c9a35b;
+
+    --gold-light: #f0d28a;
+
+    --white: #fff8f3;
+
+}
+
+
+/* =================================
+   HTML / BODY
+================================= */
+
+html,
+body {
+
+    width: 100%;
+
+    height: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    overflow: hidden;
+
+}
+
 
 body {
-    /* پس‌زمینه‌ی شیک و رمانتیک تیره */
-    background: radial-gradient(circle at center, #2a1b1f 0%, #110a0d 100%);
-    font-family: 'Vazirmatn', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: #fff;
+
+    width: 100%;
+
+    height: 100dvh;
+
+    font-family:
+        "Vazirmatn",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    color: var(--white);
+
+    background:
+
+        radial-gradient(circle at 50% 18%,
+            rgba(111, 30, 58, .35),
+            transparent 34%),
+
+        radial-gradient(circle at 20% 80%,
+            rgba(98, 42, 27, .13),
+            transparent 30%),
+
+        linear-gradient(145deg,
+            #050405,
+            #130a0e 55%,
+            #070506);
+
     overflow: hidden;
-    position: relative;
+
+    overscroll-behavior: none;
+
 }
 
-/* افکت ستاره‌های چشمک‌زن در پس‌زمینه */
+
+/* =================================
+   نورها
+================================= */
+
+.ambient {
+
+    position: fixed;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    filter: blur(85px);
+
+    pointer-events: none;
+
+    opacity: .16;
+
+}
+
+
+.ambient-one {
+
+    background: #9b214d;
+
+    top: -100px;
+
+    left: -80px;
+
+}
+
+
+.ambient-two {
+
+    background: #c18b37;
+
+    right: -100px;
+
+    bottom: -130px;
+
+    opacity: .07;
+
+}
+
+
+/* =================================
+   ستاره ها
+================================= */
+
 .stars,
-.stars2,
-.stars3 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.stars-two {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .45;
+
+    background-image:
+
+        radial-gradient(1px 1px at 20% 30%,
+            rgba(255, 255, 255, .7),
+            transparent),
+
+        radial-gradient(1px 1px at 70% 20%,
+            rgba(255, 255, 255, .5),
+            transparent),
+
+        radial-gradient(1px 1px at 40% 75%,
+            rgba(255, 255, 255, .5),
+            transparent),
+
+        radial-gradient(1px 1px at 85% 65%,
+            rgba(255, 255, 255, .6),
+            transparent),
+
+        radial-gradient(1px 1px at 12% 82%,
+            rgba(255, 255, 255, .45),
+            transparent);
+
+}
+
+
+.stars-two {
+
+    transform: scale(1.5);
+
+    opacity: .15;
+
+}
+
+
+/* =================================
+   صفحه
+================================= */
+
+.page {
+
     width: 100%;
-    height: 100%;
-    display: block;
-    background-repeat: repeat;
-    opacity: 0.6;
+
+    height: 100dvh;
+
+    padding:
+        8px 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
 }
 
-.stars {
-    background-image: radial-gradient(1px 1px at 20px 30px, #fff, rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 50px 160px, #fff, rgba(0, 0, 0, 0)),
-        radial-gradient(1px 1px at 90px 40px, #fff, rgba(0, 0, 0, 0));
-    background-size: 200px 200px;
-    animation: twinkle 4s infinite alternate;
-}
 
-@keyframes twinkle {
-    0% {
-        opacity: 0.3;
-    }
+/* =================================
+   قاب اصلی
+================================= */
 
-    100% {
-        opacity: 0.8;
-    }
-}
+.frame {
 
-.container {
-    text-align: center;
-    padding: 30px;
-    width: 100%;
-    max-width: 400px;
-    z-index: 10;
-    /* بالای ستاره‌ها */
-}
+    width:
+        min(100%, 350px);
 
-/* قلب درخشان */
-.glow-heart {
-    margin-bottom: 25px;
+    height:
+        min(calc(100dvh - 24px),
+            620px);
+
+    padding: 4px;
+
     position: relative;
-    display: inline-block;
+
+    border-radius: 23px;
+
+    background:
+
+        linear-gradient(135deg,
+            rgba(240, 210, 138, .85),
+            rgba(126, 92, 36, .5),
+            rgba(240, 210, 138, .8),
+            rgba(80, 54, 19, .5));
+
+    box-shadow:
+
+        0 0 0 1px rgba(255, 255, 255, .08),
+
+        0 20px 60px rgba(0, 0, 0, .65),
+
+        0 0 65px rgba(107, 27, 53, .16);
+
+    flex-shrink: 1;
+
 }
+
+
+/* =================================
+   داخل قاب
+================================= */
+
+.frame-inner {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    border-radius: 19px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(240, 210, 138, .38);
+
+    background:
+
+        radial-gradient(circle at 50% 23%,
+            rgba(103, 25, 51, .34),
+            transparent 32%),
+
+        linear-gradient(160deg,
+            rgba(30, 16, 20, .98),
+            rgba(9, 7, 8, .99));
+
+}
+
+
+.frame-inner::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 9px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid rgba(201, 163, 91, .18);
+
+    pointer-events: none;
+
+}
+
+
+/* =================================
+   گوشه های قاب
+================================= */
+
+.corner {
+
+    position: absolute;
+
+    width: 20px;
+
+    height: 20px;
+
+    border-color:
+        rgba(240, 210, 138, .7);
+
+    z-index: 5;
+
+}
+
+
+.top-right {
+
+    top: 21px;
+
+    right: 21px;
+
+    border-top: 1px solid;
+
+    border-right: 1px solid;
+
+}
+
+
+.top-left {
+
+    top: 21px;
+
+    left: 21px;
+
+    border-top: 1px solid;
+
+    border-left: 1px solid;
+
+}
+
+
+.bottom-right {
+
+    bottom: 21px;
+
+    right: 21px;
+
+    border-bottom: 1px solid;
+
+    border-right: 1px solid;
+
+}
+
+
+.bottom-left {
+
+    bottom: 21px;
+
+    left: 21px;
+
+    border-bottom: 1px solid;
+
+    border-left: 1px solid;
+
+}
+
+
+/* =================================
+   محتوا
+================================= */
+
+.content {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    height: 100%;
+
+    padding:
+
+        clamp(20px, 4vh, 38px) 22px 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+
+/* =================================
+   قلب
+================================= */
+
+.heart-area {
+
+    position: relative;
+
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom:
+        clamp(3px, 1vh, 10px);
+
+    flex-shrink: 0;
+
+}
+
+
+.heart-glow {
+
+    position: absolute;
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: #c21f55;
+
+    filter: blur(28px);
+
+    opacity: .4;
+
+    transition: .8s;
+
+}
+
 
 .heart {
-    font-size: 60px;
-    display: inline-block;
-    animation: heartbeat 1.5s infinite;
-    filter: drop-shadow(0 0 15px rgba(255, 0, 50, 0.6));
+
+    position: relative;
+
+    font-size:
+        clamp(38px, 10vw, 48px);
+
+    color: #e6396b;
+
+    filter:
+
+        drop-shadow(0 0 7px rgba(230, 57, 107, .8)) drop-shadow(0 0 22px rgba(230, 57, 107, .45));
+
+    animation:
+        heartbeat 2.6s ease-in-out infinite;
+
 }
+
 
 @keyframes heartbeat {
-    0% {
-        transform: scale(1);
-    }
 
-    15% {
-        transform: scale(1.15);
-    }
-
-    30% {
-        transform: scale(1);
-    }
-
-    45% {
-        transform: scale(1.15);
-    }
-
-    60% {
-        transform: scale(1);
-    }
-
+    0%,
     100% {
         transform: scale(1);
     }
+
+    50% {
+        transform: scale(1.09);
+    }
+
 }
+
+
+.music-playing .heart {
+
+    animation:
+        heartbeat .9s ease-in-out infinite;
+
+}
+
+
+.music-playing .heart-glow {
+
+    opacity: .7;
+
+    transform: scale(1.2);
+
+}
+
+
+/* =================================
+   عنوان
+================================= */
+
+.title-area {
+
+    text-align: center;
+
+    flex-shrink: 0;
+
+}
+
+
+.small-line {
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(240, 210, 138, .7);
+
+    margin-bottom: 5px;
+
+}
+
 
 h1 {
-    font-size: 28px;
-    font-weight: 700;
-    color: #f8e1e6;
-    /* رنگ صورتی خیلی روشن */
-    margin-bottom: 15px;
-    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+
+    margin: 0;
+
+    font-size:
+        clamp(28px, 8vw, 42px);
+
+    line-height: 1.25;
+
+    font-weight: 500;
+
+    color: #fff5e8;
+
+    text-shadow:
+        0 5px 25px rgba(0, 0, 0, .7);
+
 }
 
-.subtitle {
-    font-size: 14px;
-    color: #b89fa5;
-    margin-bottom: 40px;
-    font-weight: 300;
-    line-height: 1.6;
-}
 
-/* دکمه پخش با هاله نور */
-.play-container {
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
+.gold-line {
+
+    display: flex;
+
     align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin:
+        7px auto 5px;
+
 }
+
+
+.gold-line span {
+
+    width:
+        clamp(30px, 11vw, 45px);
+
+    height: 1px;
+
+    background:
+
+        linear-gradient(90deg,
+            transparent,
+            rgba(201, 163, 91, .8));
+
+}
+
+
+.gold-line span:last-child {
+
+    background:
+
+        linear-gradient(90deg,
+            rgba(201, 163, 91, .8),
+            transparent);
+
+}
+
+
+.gold-line i {
+
+    font-style: normal;
+
+    font-size: 8px;
+
+    color: var(--gold);
+
+}
+
+
+.title-area p {
+
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, .62);
+
+    font-size:
+        clamp(11px, 3.2vw, 14px);
+
+    font-weight: 300;
+
+}
+
+
+/* =================================
+   پلیر
+================================= */
+
+.player {
+
+    width: 100%;
+
+    max-width: 270px;
+
+    margin-top:
+        clamp(18px, 3.5vh, 30px);
+
+    padding:
+        clamp(12px, 2.5vh, 17px);
+
+    border-radius: 17px;
+
+    background:
+
+        linear-gradient(145deg,
+            rgba(255, 255, 255, .075),
+            rgba(255, 255, 255, .025));
+
+    border:
+        1px solid rgba(255, 255, 255, .09);
+
+    box-shadow:
+
+        inset 0 1px 0 rgba(255, 255, 255, .06),
+
+        0 12px 30px rgba(0, 0, 0, .3);
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+    flex-shrink: 0;
+
+}
+
+
+/* زمان */
+
+.time-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    direction: ltr;
+
+    color:
+        rgba(255, 255, 255, .4);
+
+    font-size: 8px;
+
+    margin-bottom: 6px;
+
+}
+
+
+/* نوار */
+
+.progress-container {
+
+    height: 3px;
+
+    width: 100%;
+
+    background:
+        rgba(255, 255, 255, .1);
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+}
+
+
+.progress {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+
+        linear-gradient(90deg,
+            #8f274a,
+            #e2b967);
+
+    box-shadow:
+        0 0 10px rgba(226, 185, 103, .4);
+
+}
+
+
+/* =================================
+   دکمه پخش
+================================= */
+
+.controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top:
+        clamp(10px, 2vh, 16px);
+
+}
+
 
 .play-btn {
-    background: linear-gradient(135deg, #ff4d6d, #c9184a);
-    border: none;
-    width: 80px;
-    height: 80px;
+
+    width:
+        clamp(54px, 16vw, 62px);
+
+    height:
+        clamp(54px, 16vw, 62px);
+
     border-radius: 50%;
+
+    border:
+        1px solid rgba(240, 210, 138, .7);
+
+    color: #171013;
+
+    background:
+
+        radial-gradient(circle at 35% 30%,
+            #ffe6a8,
+            #c99b4d);
+
+    box-shadow:
+
+        0 8px 23px rgba(201, 163, 91, .25),
+
+        inset 0 1px 1px rgba(255, 255, 255, .8);
+
     cursor: pointer;
+
     display: flex;
-    justify-content: center;
+
     align-items: center;
-    box-shadow: 0 0 30px rgba(201, 24, 74, 0.6);
-    transition: transform 0.3s ease;
-    z-index: 2;
-    outline: none;
+
+    justify-content: center;
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
+
+    touch-action: manipulation;
+
 }
+
+
+.play-btn span {
+
+    font-size: 18px;
+
+    margin-left: 2px;
+
+}
+
+
+.play-btn:active {
+
+    transform: scale(.94);
+
+}
+
 
 .play-btn:hover {
-    transform: scale(1.1);
+
+    transform: scale(1.05);
+
+    box-shadow:
+
+        0 10px 30px rgba(201, 163, 91, .4);
+
 }
 
-.icon {
-    font-size: 35px;
-    transition: all 0.3s ease;
+
+.play-btn.playing {
+
+    background:
+
+        radial-gradient(circle at 35% 30%,
+            #f2d59a,
+            #a8752f);
+
 }
 
-/* وقتی پخش می‌شود، یکم بزرگ‌تر و نورانی‌تر می‌شود */
-.play-btn.is-playing {
-    box-shadow: 0 0 50px rgba(255, 77, 109, 0.9);
+
+/* =================================
+   متن وضعیت
+================================= */
+
+.playing-text {
+
+    text-align: center;
+
+    margin-top: 8px;
+
+    font-size: 8px;
+
+    color:
+        rgba(255, 255, 255, .4);
+
 }
 
-.play-btn.is-playing .icon {
-    animation: bounceMusic 1s infinite alternate;
+
+/* =================================
+   نوشته پایین داخل قاب
+================================= */
+
+.bottom-text {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top:
+        clamp(14px, 2.5vh, 24px);
+
+    flex-shrink: 0;
+
 }
 
-@keyframes bounceMusic {
-    0% {
-        transform: translateY(0) scale(1);
-    }
 
-    100% {
-        transform: translateY(-8px) scale(1.1);
-    }
+.bottom-text span {
+
+    height: 1px;
+
+    width: 22px;
+
+    background:
+        rgba(201, 163, 91, .25);
+
 }
 
-/* هاله (پالس) دور دکمه برای جلب توجه */
-.pulse-ring {
+
+.bottom-text p {
+
+    margin: 0;
+
+    font-size: 8px;
+
+    color:
+        rgba(255, 255, 255, .34);
+
+    text-align: center;
+
+}
+
+
+/* =================================
+   فوتر
+   داخل خود قاب
+================================= */
+
+.footer {
+
     position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: rgba(255, 77, 109, 0.4);
-    z-index: 1;
-    animation: pulse 2s infinite;
+
+    left: 0;
+
+    right: 0;
+
+    bottom:
+        clamp(8px, 1.5vh, 14px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    color:
+        rgba(255, 255, 255, .32);
+
+    font-size: 8px;
+
+    z-index: 10;
+
+    pointer-events: none;
+
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
+
+.footer b {
+
+    color:
+        rgba(201, 163, 91, .55);
+
+    font-weight: 400;
+
+}
+
+
+/* =================================
+   گوشی کوتاه
+================================= */
+
+@media (max-height: 620px) {
+
+
+    .page {
+
+        padding: 5px 7px;
+
     }
 
-    100% {
-        transform: scale(1.8);
-        opacity: 0;
+
+    .frame {
+
+        width:
+            min(100%, 340px);
+
+        height:
+            calc(100dvh - 10px);
+
     }
+
+
+    .content {
+
+        padding:
+            12px 18px 45px;
+
+    }
+
+
+    .heart-area {
+
+        width: 58px;
+
+        height: 58px;
+
+        margin-bottom: 2px;
+
+    }
+
+
+    .heart {
+
+        font-size: 34px;
+
+    }
+
+
+    .small-line {
+
+        margin-bottom: 2px;
+
+    }
+
+
+    h1 {
+
+        font-size: 27px;
+
+    }
+
+
+    .gold-line {
+
+        margin:
+            4px auto;
+
+    }
+
+
+    .player {
+
+        margin-top: 11px;
+
+        padding:
+            9px 12px;
+
+    }
+
+
+    .controls {
+
+        margin-top: 7px;
+
+    }
+
+
+    .play-btn {
+
+        width: 50px;
+
+        height: 50px;
+
+    }
+
+
+    .playing-text {
+
+        margin-top: 5px;
+
+    }
+
+
+    .bottom-text {
+
+        margin-top: 8px;
+
+    }
+
+
+    .bottom-text p {
+
+        font-size: 7px;
+
+    }
+
+
+    .footer {
+
+        display: flex;
+
+        bottom: 20px;
+
+        font-size: 6.5px;
+
+    }
+
+}
+
+
+/* =================================
+   گوشی باریک
+================================= */
+
+@media (max-width: 340px) {
+
+
+    .page {
+
+        padding: 4px;
+
+    }
+
+
+    .frame {
+
+        width: 100%;
+
+        height:
+            calc(100dvh - 8px);
+
+    }
+
+
+    .content {
+
+        padding-left: 15px;
+
+        padding-right: 15px;
+
+    }
+
+
+    h1 {
+
+        font-size: 25px;
+
+    }
+
+
+    .player {
+
+        max-width: 250px;
+
+    }
+
+
+    .footer {
+
+        font-size: 8px;
+
+    }
+
+}
+
+
+/* =================================
+   کاهش انیمیشن
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+
+    }
+
 }
