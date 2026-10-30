@@ -2,73 +2,564 @@
 <html lang="fa" dir="rtl">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>آهنگِ یادگـــــــار</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <meta name="theme-color" content="#080607">
+
+    <title>یادگار</title>
+
+    <link rel="stylesheet" href="sty.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
 </head>
+
 
 <body>
 
-    <!-- ستاره‌های پس‌زمینه -->
+
+    <!-- نورهای پس زمینه -->
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+
+    <!-- ستاره ها -->
+
     <div class="stars"></div>
-    <div class="stars2"></div>
-    <div class="stars3"></div>
+    <div class="stars stars-two"></div>
 
-    <div class="container">
-        <!-- هاله نورانی و قلب درخشان -->
-        <div class="glow-heart">
-            <div class="heart">❤️</div>
-        </div>
 
-        <!-- متن‌ها -->
-        <h1>یـادگــــــــــار🫠 </h1>
-        <p class="subtitle">این آهنـــــــگ...</p>
+    <main class="page">
 
-        <!-- دکمه پخش با هاله نور -->
-        <div class="play-container">
-            <button id="playBtn" class="play-btn">
-                <span class="icon">🎵</span>
-            </button>
-            <div class="pulse-ring"></div>
-        </div>
-    </div>
 
-    <audio id="audioPlayer" src="adio/song.mp3"></audio>
+        <!-- قاب اصلی -->
+
+        <section class="frame">
+
+
+            <div class="frame-inner">
+
+
+                <!-- گوشه های تزئینی -->
+
+                <span class="corner top-right"></span>
+                <span class="corner top-left"></span>
+
+                <span class="corner bottom-right"></span>
+                <span class="corner bottom-left"></span>
+
+
+                <!-- محتوای اصلی -->
+
+                <div class="content">
+
+
+                    <!-- قلب -->
+
+                    <div class="heart-area">
+
+                        <div class="heart-glow"></div>
+
+                        <div class="heart">
+                            ♥
+                        </div>
+
+                    </div>
+
+
+                    <!-- عنوان -->
+
+                    <div class="title-area">
+
+
+                        <div class="small-line">
+                            یک خاطره
+                        </div>
+
+
+                        <h1>
+                            یـادگــــــــــار
+                        </h1>
+
+
+                        <div class="gold-line">
+
+                            <span></span>
+
+                            <i>♥</i>
+
+                            <span></span>
+
+                        </div>
+
+
+                        <p>
+                            این آهنـــــــگ...
+                        </p>
+
+
+                    </div>
+
+
+                    <!-- پلیر -->
+
+                    <div class="player">
+
+
+                        <!-- زمان -->
+
+                        <div class="time-row">
+
+                            <span id="currentTime">
+                                00:00
+                            </span>
+
+                            <span id="duration">
+                                00:00
+                            </span>
+
+                        </div>
+
+
+                        <!-- نوار پیشرفت -->
+
+                        <div
+                            class="progress-container"
+                            id="progressContainer">
+
+                            <div
+                                class="progress"
+                                id="progress">
+                            </div>
+
+                        </div>
+
+
+                        <!-- دکمه -->
+
+                        <div class="controls">
+
+                            <button
+                                id="playBtn"
+                                class="play-btn"
+                                aria-label="پخش آهنگ">
+
+                                <span id="playIcon">
+                                    ▶
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- وضعیت -->
+
+                        <div
+                            class="playing-text"
+                            id="playingText">
+
+                        دکمه پخش👆
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- نوشته پایین داخل قاب -->
+
+                    <div class="bottom-text">
+
+                        <span></span>
+
+                        <p>
+                            بعضی خاطره‌ها
+                            برای همیشه می‌مانند
+                        </p>
+
+                        <span></span>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- فوتر داخل خود قاب -->
+
+                <div class="footer">
+
+                    <span>
+                        یک خاطره
+                    </span>
+
+                    <b>•</b>
+
+                    <span>
+                        یک صدا
+                    </span>
+
+                    <b>•</b>
+
+                    <span>
+                        برای همیشه
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- آهنگ -->
+
+    <audio
+        id="audioPlayer"
+        preload="metadata"
+        src="adio/song.mp3">
+    </audio>
+
 
     <script>
-        const audio = document.getElementById('audioPlayer');
-        const playBtn = document.getElementById('playBtn');
-        const icon = playBtn.querySelector('.icon');
-        const pulseRing = document.querySelector('.pulse-ring');
+
+
+        const audio =
+            document.getElementById(
+                "audioPlayer"
+            );
+
+
+        const playBtn =
+            document.getElementById(
+                "playBtn"
+            );
+
+
+        const playIcon =
+            document.getElementById(
+                "playIcon"
+            );
+
+
+        const progress =
+            document.getElementById(
+                "progress"
+            );
+
+
+        const progressContainer =
+            document.getElementById(
+                "progressContainer"
+            );
+
+
+        const currentTime =
+            document.getElementById(
+                "currentTime"
+            );
+
+
+        const duration =
+            document.getElementById(
+                "duration"
+            );
+
+
+        const playingText =
+            document.getElementById(
+                "playingText"
+            );
+
+
         let isPlaying = false;
 
-        playBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
 
-            if (!isPlaying) {
-                audio.play();
-                isPlaying = true;
-                icon.innerHTML = '🎶';
-                playBtn.classList.add('is-playing');
-                pulseRing.style.display = 'none'; // وقتی پخش شد، هاله قطع شود
-            } else {
-                audio.pause();
-                isPlaying = false;
-                icon.innerHTML = '🎵';
-                playBtn.classList.remove('is-playing');
-                pulseRing.style.display = 'block';
+        /* =========================
+           زمان
+        ========================= */
+
+        function formatTime(seconds) {
+
+            if (!isFinite(seconds)) {
+
+                return "00:00";
+
             }
-        });
 
-        audio.addEventListener('ended', () => {
-            isPlaying = false;
-            icon.innerHTML = '🎵';
-            playBtn.classList.remove('is-playing');
-            pulseRing.style.display = 'block';
-        });
+
+            const minutes =
+                Math.floor(
+                    seconds / 60
+                );
+
+
+            const secs =
+                Math.floor(
+                    seconds % 60
+                );
+
+
+            return (
+
+                String(minutes)
+                    .padStart(2, "0")
+
+                +
+
+                ":"
+
+                +
+
+                String(secs)
+                    .padStart(2, "0")
+
+            );
+
+        }
+
+
+        /* =========================
+           اطلاعات آهنگ
+        ========================= */
+
+        audio.addEventListener(
+            "loadedmetadata",
+            () => {
+
+                duration.textContent =
+                    formatTime(
+                        audio.duration
+                    );
+
+            }
+        );
+
+
+        /* =========================
+           پخش / توقف
+        ========================= */
+
+        playBtn.addEventListener(
+            "click",
+            async () => {
+
+
+                if (!isPlaying) {
+
+
+                    try {
+
+                        await audio.play();
+
+
+                        isPlaying = true;
+
+
+                        playIcon.textContent =
+                            "Ⅱ";
+
+
+                        playBtn.classList.add(
+                            "playing"
+                        );
+
+
+                        document.body.classList.add(
+                            "music-playing"
+                        );
+
+
+                        playingText.textContent =
+                            "در حال پخش آهنگ...";
+
+
+                    }
+
+                    catch (error) {
+
+                        playingText.textContent =
+                            "برای پخش دوباره لمس کنید";
+
+                    }
+
+
+                }
+
+                else {
+
+
+                    audio.pause();
+
+
+                    isPlaying = false;
+
+
+                    playIcon.textContent =
+                        "▶";
+
+
+                    playBtn.classList.remove(
+                        "playing"
+                    );
+
+
+                    document.body.classList.remove(
+                        "music-playing"
+                    );
+
+
+                    playingText.textContent =
+                        "آهنگ متوقف شد";
+
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           نوار پیشرفت
+        ========================= */
+
+        audio.addEventListener(
+            "timeupdate",
+            () => {
+
+
+                if (!audio.duration) {
+
+                    return;
+
+                }
+
+
+                const percentage =
+                    (
+                        audio.currentTime /
+                        audio.duration
+                    ) * 100;
+
+
+                progress.style.width =
+                    percentage + "%";
+
+
+                currentTime.textContent =
+                    formatTime(
+                        audio.currentTime
+                    );
+
+            }
+        );
+
+
+        /* =========================
+           کلیک روی نوار
+        ========================= */
+
+        progressContainer.addEventListener(
+            "click",
+            (event) => {
+
+
+                if (!audio.duration) {
+
+                    return;
+
+                }
+
+
+                const rect =
+                    progressContainer
+                        .getBoundingClientRect();
+
+
+                const position =
+                    event.clientX -
+                    rect.left;
+
+
+                const percentage =
+                    position /
+                    rect.width;
+
+
+                audio.currentTime =
+                    percentage *
+                    audio.duration;
+
+            }
+        );
+
+
+        /* =========================
+           پایان آهنگ
+        ========================= */
+
+        audio.addEventListener(
+            "ended",
+            () => {
+
+
+                isPlaying = false;
+
+
+                playIcon.textContent =
+                    "▶";
+
+
+                playBtn.classList.remove(
+                    "playing"
+                );
+
+
+                document.body.classList.remove(
+                    "music-playing"
+                );
+
+
+                progress.style.width =
+                    "0%";
+
+
+                currentTime.textContent =
+                    "00:00";
+
+
+                playingText.textContent =
+                    "برای شنیدن دوباره، لمس کنید";
+
+            }
+        );
+
+
     </script>
+
+
 </body>
 
 </html>
